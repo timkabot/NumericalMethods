@@ -7,13 +7,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.TextArea?>
-<GridPane alignment="CENTER" gridLinesVisible="true" hgap="2" vgap="1.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1920" vgap="1.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <LineChart fx:id="MyChart" prefHeight="900.0" prefWidth="1000.0" title="Graph" GridPane.rowIndex="1">
+      <LineChart fx:id="MyChart" prefHeight="540" prefWidth="1600" title="Graph" GridPane.columnIndex="1" GridPane.rowIndex="0">
          <xAxis>
             <NumberAxis label="x" side="BOTTOM" />
          </xAxis>
@@ -21,9 +20,9 @@
             <NumberAxis label="y" side="LEFT" />
          </yAxis>
       </LineChart>
-      <Group>
+      <Group GridPane.valignment="TOP" GridPane.columnIndex="0" GridPane.rowIndex="0">
          <children>
-            <HBox>
+            <VBox prefHeight="523.0" prefWidth="149.0">
                <children>
                   <TextField text="x0" fx:id="xField" />
                   <TextField fx:id="yField" prefWidth="143.0" text="y0" />
@@ -31,7 +30,7 @@
                   <Button fx:id="show" mnemonicParsing="false" text="Show graph" />
                   <TextField fx:id="infoField" text=" x0 = 1, y0 = 3, step = 4 " />
                </children>
-            </HBox>
+            </VBox>
          </children>
       </Group>
    </children>
@@ -40,7 +39,6 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints />
    </rowConstraints>
 

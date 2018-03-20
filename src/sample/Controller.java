@@ -25,9 +25,9 @@ public class Controller implements Initializable {
     @FXML
     private TextField infoField;
     // y` = 4/(x^2) - y/x - y^2   x0 = 1, y0 = 3, step = 4
-    EulersMethod eulers_method;
-    ImprovedEulersMethod improvedEulersMethod;
-    RungeKuttaMethod rungeKuttaMethod;
+    private EulersMethod eulers_method;
+    private ImprovedEulersMethod improvedEulersMethod;
+    private RungeKuttaMethod rungeKuttaMethod;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eulers_method = new EulersMethod();
@@ -35,17 +35,22 @@ public class Controller implements Initializable {
         rungeKuttaMethod = new RungeKuttaMethod();
         MyChart.getData().addAll(eulers_method.execute(), improvedEulersMethod.execute(),rungeKuttaMethod.execute());
         show.setOnAction(event -> {
-            double x0 = Double.valueOf(xField.getText());
-            double y0 = Double.valueOf(yField.getText());
+            double x0, y0;
+            x0 = toDouble(xField.getText());
+            y0 = toDouble(yField.getText());
             double step = Double.valueOf(StepField.getText());
             eulers_method = new EulersMethod(x0, y0,step);
             improvedEulersMethod = new ImprovedEulersMethod(x0, y0, step);
             rungeKuttaMethod = new RungeKuttaMethod(x0, y0, step);
             infoField.clear();
             infoField.setText("x0=" + x0 + ", y0=" + y0 + ", step=" + step);
+
             MyChart.getData().clear();
             MyChart.getData().addAll(eulers_method.execute(), improvedEulersMethod.execute(),rungeKuttaMethod.execute());
         });
+    }
+    private double toDouble(String num){
+        return Double.valueOf(num);
     }
 
 }

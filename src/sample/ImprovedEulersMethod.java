@@ -8,18 +8,24 @@ import static sample.Constants.f;
  * Created by Timkabor on 3/15/2018.
  */
 public class ImprovedEulersMethod {
-    double x0 = 1.0, y0 = 3.0 , h = 4;
-    int N = 50;
-    double x[] = new double[N];
-    double y[] = new double[N];
+    private double x0 = 1.0, y0 = 3.0 , h = 4;
+    private int N = 50;
+    private double x[] = new double[N];
+    private double y[] = new double[N];
     public ImprovedEulersMethod(double x0, double y0, double h) {
         this.x0 = x0;
         this.y0 = y0;
         this.h = h;
     }
+    public ImprovedEulersMethod(double x0, double y0, double h, int N) {
+        this.x0 = x0;
+        this.y0 = y0;
+        this.h = h;
+        this.N = N;
+    }
     public ImprovedEulersMethod() {
     }
-    private XYChart.Series improved_eulers_method;
+
     public XYChart.Series execute() {
         x[0] = x0;
         for (int i = 1; i < N; i++) {
@@ -37,7 +43,7 @@ public class ImprovedEulersMethod {
                 break;
             }
         }
-        improved_eulers_method = new XYChart.Series();
+        XYChart.Series improved_eulers_method = new XYChart.Series();
         improved_eulers_method.setName("Improved Eulers method");
 
 
