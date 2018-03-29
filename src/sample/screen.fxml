@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ScreenController" >
+   <children>
+      <TabPane prefHeight="1080" prefWidth="1920" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+               <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1920" vgap="1.0" >
+                  <children>
+                     <LineChart fx:id="MyChart" prefHeight="540" prefWidth="1600" title="Graph" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <xAxis>
+                           <NumberAxis label="x" side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                           <NumberAxis label="y" side="LEFT" />
+                        </yAxis>
+                     </LineChart>
+                     <LineChart fx:id="ErrorChart" prefHeight="540" prefWidth="1600" title="ErrorGraph" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <xAxis>
+                           <NumberAxis label="x" side="BOTTOM" />
+                        </xAxis>
+                        <yAxis>
+                           <NumberAxis label="y" side="LEFT" />
+                        </yAxis>
+                     </LineChart>
+                     <Group GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="TOP">
+                        <children>
+                           <VBox prefHeight="523.0" prefWidth="149.0">
+                              <children>
+                                 <TextField fx:id="X_Field"   text="x0"/>
+                                 <TextField fx:id="Y_Field" text="y0" />
+                                 <TextField fx:id="N_Field" text="Step " />
+                                 <Button fx:id="Show_First_Screen_Button" mnemonicParsing="false" text="Show graph" />
+                                 <TextField fx:id="Info_Field" text=" x0 = 1, y0 = 3, step = 4, Max_X = 20" />
+                              </children>
+                           </VBox>
+                        </children>
+                     </Group>
+                  </children>
+               </GridPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1920" vgap="1.0">
+               <children>
+                  <LineChart fx:id="MaxErrorChart" prefHeight="540" prefWidth="1600" title="Graph" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <xAxis>
+                        <NumberAxis label="x" side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="y" side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+                  <Group GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="TOP">
+                     <VBox prefHeight="523.0" prefWidth="149.0">
+                        <children>
+                           <TextField text="Max_X Min" fx:id="N_MIN" />
+                           <TextField fx:id="N_MAX" prefWidth="143.0" text="Max_X max" />
+                           <Button fx:id="Show_Second_Screen_Button" mnemonicParsing="false" text="Show graph" />
+                        </children>
+                     </VBox>
+                  </Group>
+               </children>
+              </GridPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
