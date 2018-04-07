@@ -1,85 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ScreenController" >
-   <children>
-      <TabPane prefHeight="1080" prefWidth="1920" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-               <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1920" vgap="1.0" >
-                  <children>
-                     <LineChart fx:id="MyChart" prefHeight="540" prefWidth="1600" title="Graph" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <xAxis>
-                           <NumberAxis label="x" side="BOTTOM" />
-                        </xAxis>
-                        <yAxis>
-                           <NumberAxis label="y" side="LEFT" />
-                        </yAxis>
-                     </LineChart>
-                     <LineChart fx:id="ErrorChart" prefHeight="540" prefWidth="1600" title="ErrorGraph" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <xAxis>
-                           <NumberAxis label="x" side="BOTTOM" />
-                        </xAxis>
-                        <yAxis>
-                           <NumberAxis label="y" side="LEFT" />
-                        </yAxis>
-                     </LineChart>
-                     <Group GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="TOP">
-                        <children>
-                           <VBox prefHeight="523.0" prefWidth="149.0">
-                              <children>
-                                 <TextField fx:id="X_Field"   text="x0"/>
-                                 <TextField fx:id="Y_Field" text="y0" />
-                                 <TextField fx:id="N_Field" text="Step " />
-                                 <Button fx:id="Show_First_Screen_Button" mnemonicParsing="false" text="Show graph" />
-                                 <TextField fx:id="Info_Field" text=" x0 = 1, y0 = 3, step = 4, Max_X = 20" />
-                              </children>
-                           </VBox>
-                        </children>
-                     </Group>
-                  </children>
-               </GridPane>
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1920" vgap="1.0">
-               <children>
-                  <LineChart fx:id="MaxErrorChart" prefHeight="540" prefWidth="1600" title="Graph" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                     <xAxis>
-                        <NumberAxis label="x" side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis label="y" side="LEFT" />
-                     </yAxis>
-                  </LineChart>
-                  <Group GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="TOP">
-                     <VBox prefHeight="523.0" prefWidth="149.0">
-                        <children>
-                           <TextField text="Max_X Min" fx:id="N_MIN" />
-                           <TextField fx:id="N_MAX" prefWidth="143.0" text="Max_X max" />
-                           <Button fx:id="Show_Second_Screen_Button" mnemonicParsing="false" text="Show graph" />
-                        </children>
-                     </VBox>
-                  </Group>
-               </children>
-              </GridPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.ScreenController">
+    <TabPane prefHeight="1000" prefWidth="1920" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Approximation Methods">
+            <GridPane gridLinesVisible="true" hgap="1" prefHeight="1000" prefWidth="1900" vgap="1.0">
+
+                <LineChart fx:id="chart" prefHeight="540" prefWidth="1920" title="Graph"
+                           GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <xAxis>
+                        <NumberAxis label="x" side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="y" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+                <LineChart fx:id="errorChart" prefHeight="540" prefWidth="1900" title="ErrorGraph"
+                           GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <xAxis>
+                        <NumberAxis label="x" side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="y" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+                <Group GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.valignment="CENTER"
+                       GridPane.halignment="CENTER">
+                    <HBox prefHeight="50.0" prefWidth="1000.0" fx:id="hBox" alignment="CENTER">
+                        <TextField fx:id="X_Field" text="x0"/>
+                        <TextField fx:id="Y_Field" text="y0"/>
+                        <TextField fx:id="N_Field" text="N"/>
+                        <Button fx:id="Show_First_Screen_Button" mnemonicParsing="false" prefWidth="150"
+                                text="Show graph"/>
+
+                        <TextField fx:id="Info_Field" text=" x0 = 1, y0 = 3, step = 4"
+                                   prefWidth="300"
+                        />
+
+                        <CheckBox mnemonicParsing="false" text="Euler" fx:id="EulerBox" prefWidth="120"/>
+                        <CheckBox mnemonicParsing="false" text="Improved Euler" fx:id="ImprovedEulerBox"
+                                  prefWidth="170"/>
+                        <CheckBox mnemonicParsing="false" text="Runge-Kutta"
+                                  fx:id="RungeKuttaBox" prefWidth="220"/>
+                    </HBox>
+                </Group>
+            </GridPane>
+        </Tab>
+        <Tab text="Truncation Error">
+            <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1900" vgap="1.0">
+                <LineChart fx:id="MaxErrorChart" prefHeight="1000" prefWidth="1900" title="Graph"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <xAxis>
+                        <NumberAxis label="x" side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="y" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+                <Group GridPane.columnIndex="0" GridPane.rowIndex="0" >
+                    <HBox prefHeight="40.0" prefWidth="1900.0" alignment="CENTER">
+                        <TextField fx:id="N_MIN" text="Min N"/>
+                        <TextField fx:id="N_MAX" prefWidth="143.0" text="Max N "/>
+                        <Button fx:id="Show_Second_Screen_Button" mnemonicParsing="false" text="Show graph"/>
+                    </HBox>
+                </Group>
+            </GridPane>
+        </Tab>
+    </TabPane>
 </AnchorPane>
