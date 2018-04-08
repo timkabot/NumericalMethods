@@ -19,18 +19,18 @@
             <GridPane gridLinesVisible="true" hgap="1" prefHeight="1000" prefWidth="1900" vgap="1.0">
 
                 <LineChart fx:id="chart" prefHeight="540" prefWidth="1920" title="Graph"
-                           GridPane.columnIndex="0" GridPane.rowIndex="2">
+                           GridPane.columnIndex="0" GridPane.rowIndex="2" createSymbols="false">
                     <xAxis>
-                        <NumberAxis label="x" side="BOTTOM"/>
+                        <NumberAxis label="x" side="BOTTOM" fx:id="first_screen_x_axis"/>
                     </xAxis>
                     <yAxis>
                         <NumberAxis label="y" side="LEFT"/>
                     </yAxis>
                 </LineChart>
-                <LineChart fx:id="errorChart" prefHeight="540" prefWidth="1900" title="ErrorGraph"
-                           GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <LineChart fx:id="error_chart" prefHeight="540" prefWidth="1900" title="ErrorGraph"
+                           GridPane.columnIndex="0" GridPane.rowIndex="3" createSymbols="false">
                     <xAxis>
-                        <NumberAxis label="x" side="BOTTOM"/>
+                        <NumberAxis label="x" side="BOTTOM" fx:id="first_screen_x_error_axis"/>
                     </xAxis>
                     <yAxis>
                         <NumberAxis label="y" side="LEFT"/>
@@ -41,11 +41,12 @@
                     <HBox prefHeight="50.0" prefWidth="1000.0" fx:id="hBox" alignment="CENTER">
                         <TextField fx:id="X_Field" text="x0"/>
                         <TextField fx:id="Y_Field" text="y0"/>
+                        <TextField fx:id="X_Max" text="X Max"/>
                         <TextField fx:id="N_Field" text="N"/>
                         <Button fx:id="Show_First_Screen_Button" mnemonicParsing="false" prefWidth="150"
                                 text="Show graph"/>
 
-                        <TextField fx:id="Info_Field" text=" x0 = 1, y0 = 3, step = 4"
+                        <TextField fx:id="Info_Field" text=" x0 = 1, y0 = 3, step = 0.5"
                                    prefWidth="300"
                         />
 
@@ -60,13 +61,13 @@
         </Tab>
         <Tab text="Truncation Error">
             <GridPane gridLinesVisible="true" hgap="2" prefHeight="1080" prefWidth="1900" vgap="1.0">
-                <LineChart fx:id="MaxErrorChart" prefHeight="1000" prefWidth="1900" title="Graph"
-                           GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <LineChart fx:id="max_error_chart" prefHeight="1000" prefWidth="1900" title="Graph"
+                           GridPane.columnIndex="0" GridPane.rowIndex="1" createSymbols="false">
                     <xAxis>
-                        <NumberAxis label="x" side="BOTTOM"/>
+                        <NumberAxis label="x" side="BOTTOM" fx:id="second_screen_x_axis" lowerBound="300" upperBound="600"/>
                     </xAxis>
                     <yAxis>
-                        <NumberAxis label="y" side="LEFT"/>
+                        <NumberAxis label="y" side="LEFT" />
                     </yAxis>
                 </LineChart>
                 <Group GridPane.columnIndex="0" GridPane.rowIndex="0" >
