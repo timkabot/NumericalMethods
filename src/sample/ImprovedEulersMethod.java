@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import static sample.Constants.f;
